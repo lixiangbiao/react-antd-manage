@@ -1,6 +1,7 @@
 import React from 'react'
 import { Layout, Menu, Icon, } from 'antd';
 import { Link ,withRouter} from 'react-router-dom'
+import { connect } from 'react-redux'
 const { Sider } = Layout;
 const SubMenu = Menu.SubMenu;
 const  Bsider = withRouter((props) => {
@@ -39,19 +40,19 @@ const  Bsider = withRouter((props) => {
 
                     <SubMenu
                         key="/product"
-                        title={<span><Icon type="shopping" /><span>产品管理</span></span>}
+                        title={<span><Icon type="trademark" /><span>产品管理</span></span>}
                     >
                         <Menu.Item key="/product/depository"><Link to="/product/depository">产品库存</Link></Menu.Item>
                         <Menu.Item key="/product/cost"><Link to="/product/cost">产品成本</Link></Menu.Item>
-                        <Menu.Item key="/product/list"><Link to="/product/list">产品列表</Link></Menu.Item>
+                        <Menu.Item key="/product/plist"><Link to="/product/plist">产品列表</Link></Menu.Item>
                     </SubMenu>
 
                     <SubMenu
                         key="/order"
-                        title={<span><Icon type="shopping" /><span>订单管理</span></span>}
+                        title={<span><Icon type="shopping-cart" /><span>订单管理</span></span>}
                     >
                         <Menu.Item key="/order/statement"><Link to="/order/statement">订单报表</Link></Menu.Item>
-                        <Menu.Item key="/order/list"><Link to="/order/list">订单列表</Link></Menu.Item>
+                        <Menu.Item key="/order/olist"><Link to="/order/olist">订单列表</Link></Menu.Item>
                         <Menu.Item key="/order/attach"><Link to="/order/attach">订单归属</Link></Menu.Item>
                     </SubMenu>
 
@@ -59,7 +60,7 @@ const  Bsider = withRouter((props) => {
                         key="/customer"
                         title={<span><Icon type="pay-circle" /><span>客户管理</span></span>}
                     >
-                        <Menu.Item key="/customer/message"><Link to="/customer/message">客户信息</Link></Menu.Item>
+                        <Menu.Item key="/customer/cmessage"><Link to="/customer/cmessage">客户信息</Link></Menu.Item>
                         <Menu.Item key="/customer/market"><Link to="/customer/market">客户销售</Link></Menu.Item>
                         <Menu.Item key="/customer/order"><Link to="/customer/order">客户订单</Link></Menu.Item>
                         <Menu.Item key="/customer/relation"><Link to="/customer/relation">客户关系</Link></Menu.Item>
@@ -88,7 +89,13 @@ const  Bsider = withRouter((props) => {
     )
 })
 
-export default Bsider
+const mapStateToProps = (state) => {
+    return{
+        collapsed:state.page.collapsed,
+    }
+}
+
+export default connect(mapStateToProps)(Bsider)
 
 
 

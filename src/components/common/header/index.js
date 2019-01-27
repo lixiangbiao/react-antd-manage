@@ -1,21 +1,49 @@
-import React , {Component} from 'react'
-import {Layout,Icon} from 'antd';
-const {Header} = Layout;
+import React from 'react'
+import { Layout, Icon } from 'antd';
+import { actionCreators } from '../../../store/page'
+import { connect } from 'react-redux'
+const { Header } = Layout;
 
-
-class Bheader extends Component{
-    render(){
-        return(
-            <Header style={{ background: '#fff', padding: 0 }} >
-                <Icon
+const Bheader = (props) => {
+    return (
+        <Header style={{ background: '#fff', padding: 0 }} >
+            <Icon
                 className="trigger"
-                type={this.props.collapsed ? 'menu-unfold' : 'menu-fold'}
-                onClick={this.props.toggle}
-                />
-            </Header>
+                id={String(props.collapsed)}
+                type={props.collapsed ? 'menu-unfold' : 'menu-fold'}
+                onClick={props.toggle}
+            />
+        </Header>
+    )
+}
+// class Bheader extends Component{
+//     render(){
+//         return(
+//             <Header style={{ background: '#fff', padding: 0 }} >
+//                 <Icon
+//                 className="trigger"
+//                 id={String(this.props.collapsed)}
+//                 type={this.props.collapsed ? 'menu-unfold' : 'menu-fold'}
+//                 onClick={this.props.toggle}
+//                 />
+//             </Header>
 
-        )
+//         )
+//     }
+// }
+
+const mapStateToProps = (state) => {
+    return {
+        collapsed: state.page.collapsed,
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        toggle: () => {
+            let action = actionCreators.toggleCollapsed()
+            dispatch(action)
+        }
     }
 }
 
-export default Bheader
+export default connect(mapStateToProps, mapDispatchToProps)(Bheader)

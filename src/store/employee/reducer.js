@@ -1,13 +1,13 @@
+import * as constans from './constans'
 const defaultState = {
-    inputValue:'hello world',
-    list:[]
+    editmployee:{}
 }
 
 //reducer 可以介绍state 但不能修改state
 export default (state = defaultState,action) =>{
-    if(action.type==='change_input'){
+    if(action.type===constans.SET_EDIT_EMPLOYEE){
         const  newState = JSON.parse(JSON.stringify(state));
-        newState.inputValue = action.value;
+        newState.editmployee = action.value;
         return newState;
     }
     return state

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Row, Col, Table, Select, Input ,Button,Divider,Popconfirm} from 'antd';
 const Option = Select.Option;
 const Search = Input.Search;
-class Performance extends Component {
+class Plist extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -95,7 +95,7 @@ class Performance extends Component {
             <div>
                 <Row >
                     <Col span={12} >
-                        <Button type="primary" onClick={this.addModel}>员工业绩新增</Button>
+                        <Button type="primary" onClick={this.addModel}>产品列表新增</Button>
                     </Col>
                     <Col span={12} style={{ marginBottom: '10px', textAlign: 'right' }}>
                         
@@ -128,4 +128,4 @@ class Performance extends Component {
     }
 }
 
-export default Performance
+export default Plist
