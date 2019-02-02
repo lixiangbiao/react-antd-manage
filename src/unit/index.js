@@ -18,6 +18,7 @@ export const compareArray = (arr1,arr2)=>{
 export const routerName = (pathname)=>{
     const first = {
         '/':'首页',
+        'home':'首页',
         'storage':'仓库管理',
         'product':'产品管理',
         'order':'订单管理',
@@ -69,6 +70,7 @@ export const routerName = (pathname)=>{
 export const routerTitle = (pathname)=>{
     const first = {
         '/':'首页',
+        'home':'首页',
         'storage':'仓库管理',
         'product':'产品管理',
         'order':'订单管理',

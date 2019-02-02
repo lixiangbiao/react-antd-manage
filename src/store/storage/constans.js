@@ -1,0 +1,1 @@
+export const GET_ENTER_TABLE =  'get_enter_table'

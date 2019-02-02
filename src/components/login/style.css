@@ -1,0 +1,45 @@
+.bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #333;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center center;
+    z-index: 1;
+    background-image: url(../../static/images/login-bg2.jpg);
+}
+
+.login {
+    width: 300px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    position: absolute;
+    left: 50%;
+    top: 35%;
+    margin: -150px 0 0 -150px;
+    z-index: 99;
+    text-align: center;
+}
+.login-field-title{color: #ffffff;}
+.login-form {
+    max-width: 300px;
+}
+
+.login-form-forgot {
+    float: right;
+}
+
+.login-form-button {
+    width: 100%;
+}
+.login .ant-checkbox-wrapper{
+    float: left;
+}
+.register{
+    color: #1890ff;
+    cursor: pointer;
+}

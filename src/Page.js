@@ -11,18 +11,19 @@ import { routerTitle } from './unit'
 const { Content } = Layout;
 
 class Page extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         collapsed: false,
-    //     }
-    // }
-    // toggle = () => {
-    //     this.setState({
-    //         collapsed: !this.state.collapsed,
-    //     });
-    // }
+    constructor(props) {
+        super(props);
+        this.state = {
+            collapsed: false,
+        }
+    }
+    toggle = () => {
+        this.setState({
+            collapsed: !this.state.collapsed,
+        });
+    }
     componentWillMount() {
+        console.log(this.props)
         document.title = routerTitle(this.props.location.pathname)
     }
     componentDidMount() {
@@ -30,27 +31,33 @@ class Page extends Component {
     }
     render() {
         return (
-            <Layout style={{ minHeight: '100vh' }}>
-                <Layout>
-                    <Bsider 
-                        //collapsed={this.state.collapsed} 
-                    />
+            <div>
+                <Layout style={{ minHeight: '100vh' }}>
                     <Layout>
-                        <Bheader
-                            //collapsed={this.state.collapsed}
-                            //toggle={this.toggle}
+                        <Bsider
+                            collapsed={this.state.collapsed}
                         />
-                        <Content style={{ margin: '0 16px' }}>
-                            <BBreadcrumb />
-                            <div style={{ padding: 24, background: '#fff', minHeight: 460 }}>
-                                <Router></Router>
-                            </div>
-                        </Content>
-                        <Bfooter />
+                        <Layout>
+                            <Bheader
+                                collapsed={this.state.collapsed}
+                                toggle={this.toggle}
+                            />
+                            <Content style={{ margin: '0 16px' }}>
+                                <BBreadcrumb />
+                                <div style={{ padding: 24, background: '#fff', minHeight: 460 }}>
+                                    <Router></Router>
+                                </div>
+                            </Content>
+                            <Bfooter />
+                        </Layout>
                     </Layout>
+
                 </Layout>
 
-            </Layout>
+
+
+            </div>
+
         );
     }
 }

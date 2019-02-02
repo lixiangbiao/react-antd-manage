@@ -1,13 +1,14 @@
 import * as constans from './constans'
 const defaultState = {
-    collapsed:false,
-    pathname:'/'
+    loginStatus:false,
+    userName:null
 }
 
 export default (state = defaultState,action)=>{
-    if(action.type === constans.TOGGLE_COLLAPSED){
+    if(action.type === constans.LOGIN_STATUS){
         const  newState = JSON.parse(JSON.stringify(state));
-        newState.collapsed = !state.collapsed
+        newState.loginStatus = action.value.status
+        newState.userName = action.value.name
         return newState;
     }
     return state;

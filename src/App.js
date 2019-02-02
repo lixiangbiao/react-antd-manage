@@ -1,11 +1,18 @@
 import React from 'react';
 import Page from './Page'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import Login from './components/login'
+import NotFound from './components/notfound'
 const App = () => {
 
     return (
         <BrowserRouter>
-            <Page></Page>
+            <Switch>
+                <Route exact path="/login" component={Login}></Route>
+                <Route exact path="/404" component={NotFound} />
+                <Page></Page>
+            </Switch>
+
         </BrowserRouter>
     );
 

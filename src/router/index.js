@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch ,Redirect} from 'react-router-dom'
 import Home from '../components/home/home';
 
 import Enter from '../components/storage/enter' //仓库管理 - 入库单
@@ -29,8 +29,8 @@ import Set from '../components/set/set';//系统设置
 const Router = () => {
     return (
         <Switch>
-            <Route exact path="/" component={Home}></Route>
-
+            <Route exact path="/" render={() => <Redirect to="/home" push />}></Route>
+            <Route exact path="/home" component={Home}></Route>
             <Route path="/storage/enter" component={Enter}></Route>
             <Route path="/storage/cut" component={Cut}></Route>
             <Route path="/storage/division" component={Division}></Route>

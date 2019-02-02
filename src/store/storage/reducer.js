@@ -1,13 +1,12 @@
 import * as constans from './constans'
 const defaultState = {
-    collapsed:false,
-    pathname:'/'
+    dataSource:[]
 }
 
 export default (state = defaultState,action)=>{
-    if(action.type === constans.TOGGLE_COLLAPSED){
+    if(action.type === constans.GET_ENTER_TABLE){
         const  newState = JSON.parse(JSON.stringify(state));
-        newState.collapsed = !state.collapsed
+        newState.dataSource = action.value
         return newState;
     }
     return state;
